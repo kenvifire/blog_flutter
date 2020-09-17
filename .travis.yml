@@ -2,7 +2,7 @@ os:
 - linux
 language: ruby
 rvm:
-  - 2.2
+- 2.2
 sudo: false
 addons:
   apt:
@@ -21,16 +21,16 @@ cache:
   directories:
   - "$HOME/.pub-cache"
 before_deploy:
-  - rvm 2.2 do gem install aws-sdk -v 2.1.36
+- rvm 2.2 do gem install aws-sdk -v 2.1.36
 deploy:
   provider: s3
-  access_key_id: AKIAQCNXY2QF7UDRZKG2
+  access_key_id: AKIAQCNXY2QFUUF4324C
   secret_access_key:
-    secure: Nt/7VMNs6TO/9+f+WgTJ5mElsm/n/DPHMnbRNtIBlwdm65Az2oMyWT0eCoQkurAPKLVT5W9pX/J3q3AeQFMR5XyH2emgC5zhOYjpvcMasb6bN64eXrxPv01kosbz3Au1h5rrRTSTL26Gt0cse8tQ+1Eqn0QTgo4jlqHRAy4TBKq0b35Kq02nJBJnpMfNxOGtQTCk+VT4spylu8Jg8BF+M/7G/Kn88tAX5wFnRYwcpwmVTb0c5Bhga36iTkD1LVROsNoymMagTifJ3oKp8WtJwdiu4TEo185/sAbo6mt/KDm7+rWk1xt/Quu4WCugfxbdBvbx1pdj6Pdj1OlXdfC7VvxQAno7nEGS4ZBWM8gGcU7zhuL1CRjGZ62TXCx620D9PaQkmdtZpLMC0Fu1j9eJ4nFICG9JSBm2UbznDh6ahPJtEDdEpUKXDDbl8m9cfuW6EGjdQRBa9p9RHwyEGahabjYBSdaWRCC38LLpAglqO8PUxxO/hgtVxTPQha0iPZAQicLuPRlSL4KvKte7fEBc25CTv7O0DA8tzaH5LvKXOO96laYIAA8PsSovtaKrrfv9C7dCXdCNbOzVcXlGZ80YhGgNm5+mBbdL/czi24vFNzgj90t2aeKTypPxJltqFrw7QzTMhlG57Obi3Bd+WbwFSJqjAG7zqHJpWaHqYjP6lqs=
+    secure: hVJSjggRzAsdcqyek7KBwRaC7nPRSTzA245rn45VEHvRlx6Fjiqbuy1nTQC631NUWnVgVFm+GHGB5GJEvFF0rr2qoqxyEPxyPpWAXtEEl3Cym6Pvm02BGz/2QDTt4TvbewB/sHSM/zp3mYcHE0l2yVUV9Nx2uaj4go3Io6bsPjRF6S+GcA0G4yn/5HzKrGqFSXZsIDB2SKr9ULtb5WGbqGTbJ5KhQF5BBIaMpAiWo0g5DIUdE/oet9b+5hFxahhYRsMXrpK/1I7V7wEkses3PE/Fmp044FconSub/foKQ90o8xwcvVfWc/jl0D0wPrJ5qIhpYoU60mO622Fr/vOcY1anj1JBZICuiDZoAezMOeSnTiqHF6mWK4XFfWXH5P8njR+FZfIRk5TZfoiUjrcdEoeLthnjxMnJtv6IE1HAlsn1WuideFasjlwJ6i3WEiqCcAxOt4oZjTTwCaCdiGuvym6Um2GAWI2F6j6GT2H38UiJeHIA5RE8uRO4rZC7RoQUhh/92TuXbPIUz1ydtBPAKzpV7O5BSbRCR02eFWcUi6R4FXGWhqiHcdqmhVp8USQB6mWXQHFELgKNm9zO8iQi7Gx0JOGwiIgxal8Os6qcNmjQnjqfdc/MKe/dozRQHBkF4/eYQLu0/bmdiu9PemFKXYFFK9ExsKw26niBSYl0lcI=
   bucket: www.itluobo.com
+  local-dir: build/web
   acl: public_read
   on:
     repo: kenvifire/blog_flutter
   skip_cleanup: 'true'
   region: us-west-2
-  local_dir: build/web
