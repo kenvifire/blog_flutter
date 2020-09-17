@@ -1,34 +1,31 @@
 os:
-  - linux
+- linux
 sudo: false
 addons:
   apt:
-    # Flutter depends on /usr/lib/x86_64-linux-gnu/libstdc++.so.6 version GLIBCXX_3.4.18
     sources:
-      - ubuntu-toolchain-r-test # if we don't specify this, the libstdc++6 we get is the wrong version
+    - ubuntu-toolchain-r-test
     packages:
-      - libstdc++6
-      - fonts-droid-fallback
+    - libstdc++6
+    - fonts-droid-fallback
 before_script:
-  - git clone https://github.com/flutter/flutter.git -b beta
-  - ./flutter/bin/flutter doctor
+- git clone https://github.com/flutter/flutter.git -b beta
+- "./flutter/bin/flutter doctor"
 script:
-  - ./flutter/bin/flutter channel beta
-  - ./flutter/bin/flutter config --enable-web
-  - ./flutter/bin/flutter build web
-
+- "./flutter/bin/flutter config --enable-web"
+- "./flutter/bin/flutter build web"
 cache:
   directories:
-    - $HOME/.pub-cache
+  - "$HOME/.pub-cache"
 deploy:
-  - provider: s3
-    access_key_id: AKIAQCNXY2QFTIRJ4ENT
-    secret_access_key:
-      secure: LzSzmuoy3ZPfr8K2ABSyHPllIWhq07xDGWJM+DaRZvLhSGJU6tBQiGcmQ7WT8bBE+bKJKOOCScG26pqOTWhrSwap2vZ8O5JzoibxjA1vAgzFu6C4SAEBVAsyM4/eA7E8vFQzOUD33ZgcFn3oV4/2maTc92T9julPnIk9E2KyR2OFmYZHFtRc+I6+SOW0gQm/5QoeLhL95h/HrC32EGRqAzHTNWU+/+SfGhEofPvlqWFaMbaIqGgtBGF+JfLZJG9Cy873ALL/HRWXNdx6a1JMx6jEsXDUarrpLUFdP8qCBojVXOxtOnamc9DNQdQV930kVE1clIdpdsHl/VDtsNQQzqnR0xdbCfu7u//PjQWKvdqwI5unRwN9o8jlUZcglpiCUxl5QLp+78vjIEuLjQ+teq6R/aKtTmgL835BKr8XvRrd4nZ6fPcfndbKzQqrY1APPoBmHFcGEXRa7rcCUHNEdVj1Vc6bBdge3SxlJL1mepegZBPAjQb0oCXem1YxgG89knyd109kZcsxNsS5j1GkoIu5O7H6BS+A27G7E0pZjfo+Gy4IynG/80pPCPOKbDvzPjxR2x8Rx9vQ0bYnC+rEJdOUoT0fgZ2/ggi7fIZO4BI1S2gY+eKOoDj1c9HZXnwbdcR3uHMOV4+hOxyOoBByd0fyxvMKKokjCAKbvWfJ0Eo=
-    bucket: www.itluobo.com
-    local-dir: web
-    acl: public_read
-    on:
-      repo: kenvifire/blog_flutter
-    skip_cleanup: 'true'
-    region: us-west-2
+  provider: s3
+  access_key_id: AKIAQCNXY2QF7UDRZKG2
+  secret_access_key:
+    secure: Nt/7VMNs6TO/9+f+WgTJ5mElsm/n/DPHMnbRNtIBlwdm65Az2oMyWT0eCoQkurAPKLVT5W9pX/J3q3AeQFMR5XyH2emgC5zhOYjpvcMasb6bN64eXrxPv01kosbz3Au1h5rrRTSTL26Gt0cse8tQ+1Eqn0QTgo4jlqHRAy4TBKq0b35Kq02nJBJnpMfNxOGtQTCk+VT4spylu8Jg8BF+M/7G/Kn88tAX5wFnRYwcpwmVTb0c5Bhga36iTkD1LVROsNoymMagTifJ3oKp8WtJwdiu4TEo185/sAbo6mt/KDm7+rWk1xt/Quu4WCugfxbdBvbx1pdj6Pdj1OlXdfC7VvxQAno7nEGS4ZBWM8gGcU7zhuL1CRjGZ62TXCx620D9PaQkmdtZpLMC0Fu1j9eJ4nFICG9JSBm2UbznDh6ahPJtEDdEpUKXDDbl8m9cfuW6EGjdQRBa9p9RHwyEGahabjYBSdaWRCC38LLpAglqO8PUxxO/hgtVxTPQha0iPZAQicLuPRlSL4KvKte7fEBc25CTv7O0DA8tzaH5LvKXOO96laYIAA8PsSovtaKrrfv9C7dCXdCNbOzVcXlGZ80YhGgNm5+mBbdL/czi24vFNzgj90t2aeKTypPxJltqFrw7QzTMhlG57Obi3Bd+WbwFSJqjAG7zqHJpWaHqYjP6lqs=
+  bucket: www.itluobo.com
+  acl: public_read
+  on:
+    repo: kenvifire/blog_flutter
+  skip_cleanup: 'true'
+  region: us-west-2
+  local_dir: build/web
