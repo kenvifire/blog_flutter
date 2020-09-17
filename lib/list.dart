@@ -40,11 +40,13 @@ class _BlogListState extends State<BlogList> {
                           child: Center(
                             child: SingleChildScrollView(
                               child: Column(children: [
-                                ...snapshot.data.map((blog) => BlogElement(
-                                    title: blog.title,
-                                    desc: blog.desc,
-                                    path: blog.path,
-                                    picture: blog.pic))
+                                ...snapshot.data
+                                    .where((blog) => blog.published == true)
+                                    .map((blog) => BlogElement(
+                                      title: blog.title,
+                                      desc: blog.desc,
+                                      path: blog.path,
+                                      picture: blog.pic))
                               ]),
                             ),
                           ),
@@ -53,8 +55,8 @@ class _BlogListState extends State<BlogList> {
                       footer: Footer(
                         child: Column(
                           children: [
-                            Text(
-                                '© 1988-2020 Itluobo.com. All rights reserved. 鄂ICP备15009294号')
+                            Text('© 1988-2020 Itluobo.com. All rights reserved. 鄂ICP备15009294号'),
+                            Text('Proudly Powered by Flutter')
                           ],
                         ),
                       ),
