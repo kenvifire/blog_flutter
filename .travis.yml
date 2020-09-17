@@ -13,6 +13,8 @@ before_script:
   - git clone https://github.com/flutter/flutter.git -b beta
   - ./flutter/bin/flutter doctor
 script:
+  - ./flutter/bin/flutter channel beta
+  - ./flutter/bin/flutter config --enable-web
   - ./flutter/bin/flutter build web
 
 cache:
