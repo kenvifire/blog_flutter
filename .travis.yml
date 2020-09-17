@@ -32,4 +32,3 @@ deploy:
   on:
     repo: kenvifire/blog_flutter
   skip_cleanup: 'true'
-  region: us-west-2
