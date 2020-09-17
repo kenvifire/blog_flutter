@@ -1,5 +1,8 @@
 os:
 - linux
+language: ruby
+rvm:
+  - 2.2
 sudo: false
 addons:
   apt:
@@ -17,6 +20,8 @@ script:
 cache:
   directories:
   - "$HOME/.pub-cache"
+before_deploy:
+  - rvm 2.2 do gem install aws-sdk -v 2.1.36
 deploy:
   provider: s3
   access_key_id: AKIAQCNXY2QF7UDRZKG2
