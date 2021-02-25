@@ -7,7 +7,7 @@ class BlogFooter extends StatelessWidget {
     return Footer(
       child: Column(
         children: [
-          Text('© 1988-2020 Itluobo.com. All rights reserved. 鄂ICP备15009294号')
+          Text('© 1988-2020 Itluobo.com. All rights reserved. 鄂ICP备15009294号|https://beian.miit.gov.cn/#/Integrated/index')
         ],
       ),
     );
